@@ -4,6 +4,16 @@
 [ext_resource type="Texture2D" uid="uid://cysgrir7hv00l" path="res://assets/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="2_jbu07"]
 [ext_resource type="Texture2D" uid="uid://c474f74glctgm" path="res://assets/Seasonal Tilesets/1 - Grassland/Extra_plants (16 x 16).png" id="3_ajqja"]
 [ext_resource type="Texture2D" uid="uid://c1o6axkbbav5l" path="res://assets/Seasonal Tilesets/1 - Grassland/Grassland_entities (16 x 16).png" id="4_cs2tf"]
+[ext_resource type="Script" uid="uid://d3hfjyga4jic1" path="res://portal.gd" id="5_3etx6"]
+[ext_resource type="Texture2D" uid="uid://dlhdblcuwbyx5" path="res://assets/portal/frame-1.png" id="5_cbyri"]
+[ext_resource type="Texture2D" uid="uid://2w7lio13eqto" path="res://assets/portal/frame-2.png" id="6_3etx6"]
+[ext_resource type="Texture2D" uid="uid://dcrilmux5hgk4" path="res://assets/portal/frame-3.png" id="7_vginq"]
+[ext_resource type="Texture2D" uid="uid://ccymr6qejqwvs" path="res://assets/portal/frame-4.png" id="8_3esfr"]
+[ext_resource type="Texture2D" uid="uid://bgcc1j0badims" path="res://assets/portal/frame-5.png" id="9_l35gs"]
+[ext_resource type="Texture2D" uid="uid://cgrh2cwe1vglj" path="res://assets/portal/frame-6.png" id="10_eee7m"]
+[ext_resource type="Texture2D" uid="uid://uiye3gatoidf" path="res://assets/portal/frame-7.png" id="11_okpy1"]
+[ext_resource type="Texture2D" uid="uid://cgr18prnb2nn6" path="res://assets/portal/frame-8.png" id="12_5dpmd"]
+[ext_resource type="Texture2D" uid="uid://cswiqylfitp7t" path="res://assets/portal/frame-9.png" id="13_542v0"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_jbu07"]
 tile_data = PackedInt32Array(0, 196609, 1, 65536, 196609, 2, 131072, 196609, 2, 196608, 196609, 6, 1, 262145, 1, 65537, 262145, 3, 131073, 262145, 3, 196609, 262145, 6, 2, 262145, 1, 65538, 262145, 3, 131074, 262145, 3, 196610, 262145, 6, 3, 262145, 1, 65539, 262145, 3, 131075, 262145, 3, 196611, 262145, 6, 4, 327681, 1, 65540, 327681, 5, 131076, 327681, 5, 196612, 327681, 6)
@@ -163,6 +173,45 @@ texture = ExtResource("4_cs2tf")
 sources/0 = SubResource("TileSetAtlasSource_bhug5")
 sources/2 = SubResource("TileSetAtlasSource_5sqpf")
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_ajqja"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_cbyri")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3etx6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vginq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_3esfr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_l35gs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_eee7m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_okpy1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_5dpmd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_542v0")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 18.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_58oby"]
+radius = 13.0
+height = 122.0
+
 [node name="fase01" type="Node2D" unique_id=1857251224]
 
 [node name="player" parent="." unique_id=143351236 instance=ExtResource("1_axix2")]
@@ -177,7 +226,15 @@ tile_map_data = PackedByteArray("AAARAAQAAgABAAEAAAARAAUAAgABAAIAAAARAAYAAgABAAM
 tile_set = SubResource("TileSet_jbu07")
 
 [node name="portal" type="Area2D" parent="." unique_id=346545615]
+position = Vector2(758, 13.000004)
+scale = Vector2(0.2, 0.2)
+script = ExtResource("5_3etx6")
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="portal" unique_id=311676738]
+sprite_frames = SubResource("SpriteFrames_ajqja")
+autoplay = "default"
+frame_progress = 0.48889932
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="portal" unique_id=273791558]
+shape = SubResource("CapsuleShape2D_58oby")
