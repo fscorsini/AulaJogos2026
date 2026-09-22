@@ -49,3 +49,6 @@ autoplay = "caminhar"
 [node name="colisao" type="CollisionShape2D" parent="." unique_id=77809712]
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_enrbn")
+
+[node name="batevolta" type="RayCast2D" parent="." unique_id=1291609763]
+target_position = Vector2(-8, 0)
